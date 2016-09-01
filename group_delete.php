@@ -21,8 +21,8 @@ $access_token = $_SESSION['fb_access_token'];
     $post = $post->getGraphEdge()->asArray();
     foreach($post as $key => $value) {
         // var_dump($value);die;
-        if(isset($value['message']) && $value['message'] == 'Tối nay học bình thường đi các anh nhé!!') {
-          $post = $fb->delete('/'.$value['id'].'/feed', $access_token );
+        if(isset($value['message']) && $value['message'] == 'Tối nay mọi người nhớ đi học đầy đủ nhé.') {
+          $post = $fb->delete('/'.$value['id'].'/feed', array ('message' => 'This is a test message'), $access_token );
           $post = $post->getGraphNode()->asArray();
           print_r($post);
         }

@@ -9,7 +9,7 @@ $fb = new Facebook\Facebook([
 
 $helper = $fb->getRedirectLoginHelper();
 
-$permissions = ['email', 'publish_actions', 'manage_pages','user_managed_groups', 'publish_pages']; // Optional permissions
-$loginUrl = $helper->getLoginUrl('https://localhost/facebook/fb-callback.php', $permissions);
+$permissions = ['email', 'publish_actions', 'manage_pages','user_managed_groups', 'publish_pages','user_photos', 'user_posts']; // Optional permissions
+$loginUrl = $helper->getLoginUrl('https://localhost/codetool/fb-callback.php', $permissions);
 echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
 ?>

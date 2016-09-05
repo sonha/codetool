@@ -14,6 +14,7 @@ try {
   
     $requestGroups = $fb->get('/me/accounts?limit=100',  $access_token);
     $groups = $requestGroups->getGraphEdge()->asArray();
+    echo "All Page";
     echo '<pre>';
     var_dump( $groups);die;
 

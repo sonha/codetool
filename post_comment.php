@@ -19,7 +19,7 @@ $access_token = $_SESSION['fb_access_token'];
     echo '<pre>';
     $codeto_page = $pages[2];
 
-    $post = $fb->post('/1592733144373244_1644012255911999_1644016122578279/comments', array('message' => 'just for tecccccsting...'), $codeto_page['access_token']);
+    $post = $fb->post('/1592733144373244_1644012255911999_1644016122578279/comments', array('message' => 'just for testing...'), $codeto_page['access_token']);
     $post = $post->getGraphNode()->asArray(); 
     print_r($post); //1644012255911999_1644019685911256
 

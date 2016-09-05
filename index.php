@@ -13,13 +13,13 @@ try {
   // Returns a `Facebook\FacebookResponse` object
   $requestUserName  = $fb->get('/me?fields=id,name, email,bio,birthday,cover,devices,education,favorite_athletes,first_name,work', $access_token);
   $user = $requestUserName->getGraphUser();
+  $user_decode = $requestUserName->getDecodedBody();
 
-  $request  = $fb->get('/1805441692/permissions', $access_token);
+  $request  = $fb->get('/'.$user_decode['id'].'/permissions', $access_token);
 
-  // $response = $request->execute();
-  // $graphObject = $response->getGraphObject();
-
-  var_dump($request);die;
+  $graphObject = $request->getDecodedBody();
+  echo '<pre>';
+  var_dump($graphObject);die;
 
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   echo 'Graph returned an error: ' . $e->getMessage();

@@ -17,7 +17,7 @@ $access_token = $_SESSION['fb_access_token'];
     $groups = $groups->getGraphEdge()->asArray();
     echo '<pre>';
     $codeto_group = $groups[1];
-    $post = $fb->post('/528418770697762/feed', array('message' => 'Tình hình là dạo này tin tuyển dụng hơi nhiều, nên mình sẽ dùng tool để tự động delete những bài viết tuyển dụng sau một ngày, các bài viết tuyển dụng sẽ chỉ xuất hiện trong group trong vòng 24h. Mong các anh chị em HR thông cảm. Thank you!'), $access_token );
+    $post = $fb->post('/528418770697762/feed', array('message' => 'Tình hình là dạo này tin tuyển dụng hơi nhiều, có bạn còn dùng tool như thế này, có nên dùng tool để xóa bớt tin tuyển dụng ko nhỉ ?'), $access_token );
     $post = $post->getGraphNode()->asArray();
     print_r($post);
 

@@ -19,10 +19,18 @@ $access_token = $_SESSION['fb_access_token'];
       // post on behalf of page
     $pages = $fb->get('/me/accounts', $access_token );
     $pages = $pages->getGraphEdge()->asArray();
+    echo "All Page";
     echo '<pre>';
     $codeto_page = $pages[2];
+
+    foreach($pages as $key => $value) {
+      if($value['name'] == 'Body Building') {
+        $page_id = $value['id'];
+        $page_token = $value['access_token'];
+      }
+    }
     // var_dump($pages );die;
-    $post = $fb->post('/'.$codeto_page['id'].'/feed', array('message' => 'just for tecccccsting...'), $codeto_page['access_token']);
+    $post = $fb->post('/'.$page_id.'/feed', array('message' => 'just for tecccccsting...'), $page_token);
     $post = $post->getGraphNode()->asArray();
     print_r($post);
 
